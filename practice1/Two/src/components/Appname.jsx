@@ -1,7 +1,7 @@
 function AppName() {
   return (
-    <center className="todo-container bg-black text-light m-4 p-4 fs-3 fw-bolder">
-      To Do App
+    <center className="heading-container app-name bg-black m-4 p-4">
+      <h1 className=" heading text-light fw-bolder">To Do App</h1>
     </center>
   );
 }

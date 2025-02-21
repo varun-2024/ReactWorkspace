@@ -21,8 +21,7 @@ function AddTodo() {
           />
         </div>
         <div className="col-2">
-          {" "}
-          <button type="button" className="btn btn-success">
+          <button type="button" className="button green btn btn-success">
             Add
           </button>
         </div>
