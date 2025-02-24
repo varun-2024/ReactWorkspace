@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Item from "./Item";
 
 //let foodItems = [];
@@ -20,5 +21,7 @@ function FoodItems({ items }) {
     </ul>
   );
 }
-
+FoodItems.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 export default FoodItems;
