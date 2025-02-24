@@ -4,9 +4,9 @@ import styles from "../Item.module.css";
 function Item({ foodItem }) {
   return (
     <>
-      <li className={`${styles.item} list-group-item text-cyan-400`}>
+      {/*  <li className={`${styles.item} list-group-item text-cyan-400`}>
         {foodItem}
-      </li>
+      </li> */}
       <li className={`${styles["kg-item"]} list-group-item text-cyan-400`}>
         {foodItem}
       </li>
