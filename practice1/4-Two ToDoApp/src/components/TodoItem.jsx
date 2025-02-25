@@ -1,13 +1,13 @@
-function TodoItem1() {
-  let todoName = "Buy Milk";
-  let todoDate = "04/10/2023";
+import PropTypes from "prop-types";
+
+function TodoItem({ todoName, todoDate }) {
   return (
     <div className="container text-center">
       <div className="row">
         <div className="col-6">{todoName}</div>
         <div className="col-4">{todoDate}</div>
         <div className="col-2">
-          <button type="button" className=" button red btn btn-danger">
+          <button type="button" className="button red btn btn-danger">
             Delete
           </button>
         </div>
@@ -16,4 +16,9 @@ function TodoItem1() {
   );
 }
 
-export default TodoItem1;
+TodoItem.propTypes = {
+  todoName: PropTypes.string.isRequired,
+  todoDate: PropTypes.string.isRequired,
+};
+
+export default TodoItem;

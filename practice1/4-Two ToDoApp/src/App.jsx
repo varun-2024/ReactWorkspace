@@ -1,15 +1,29 @@
 import AppName from "./components/Appname";
 import AddTodo from "./components/AddTodo";
-import TodoItem1 from "./components/TodoItem1";
-import TodoItem2 from "./components/TodoItem2";
+import TodoItems from "./components/TodoItems";
+
 import "./components/App.css";
+
+const todoItems = [
+  {
+    name: "Buy milk",
+    dueDate: "05/10/2023",
+  },
+  {
+    name: "Go to College",
+    dueDate: "05/10/2023",
+  },
+  {
+    name: "Like this Video",
+    dueDate: "05/10/2023",
+  },
+];
 function App() {
   return (
     <div className="todo-container">
       <AppName />
       <AddTodo />
-      <TodoItem1 />
-      <TodoItem2 />
+      <TodoItems todoItems={todoItems} />
     </div>
   );
 }
