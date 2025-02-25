@@ -9,7 +9,11 @@ function Item({ foodItem }) {
       </li> */}
       <li className={`${styles["kg-item"]}`}>
         <span>{foodItem}</span>
-        <button type="button" className={styles.button}>
+        <button
+          onClick={() => console.log("Item being bought: " + foodItem)}
+          type="button"
+          className={styles.button}
+        >
           Buy
         </button>
       </li>
