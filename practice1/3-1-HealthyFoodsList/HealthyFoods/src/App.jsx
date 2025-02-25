@@ -22,7 +22,10 @@ function App() {
         <FoodItems items={foodItems} />
       </Container>
       <Container>
-        <p>This is Awesome. I like this</p>
+        <p>
+          This is Awesome. I like this. You use this to make cards, can include
+          like share subscribe components in this.
+        </p>
       </Container>
     </>
   );
