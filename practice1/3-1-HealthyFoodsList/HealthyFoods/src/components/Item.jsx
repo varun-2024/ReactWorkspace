@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import styles from "../Item.module.css";
 // Two Ways to define styles from Module CSS Files
 function Item({ foodItem }) {
-  const handleBuyButtonClicked = (foodItem) => {
+  const handleBuyButtonClicked = (event) => {
+    console.log(event);
     console.log("Item being bought: " + foodItem);
   };
   return (
@@ -13,7 +14,7 @@ function Item({ foodItem }) {
       <li className={`${styles["kg-item"]}`}>
         <span>{foodItem}</span>
         <button
-          onClick={() => handleBuyButtonClicked(foodItem)}
+          onClick={(event) => handleBuyButtonClicked(event)}
           type="button"
           className={styles.button}
         >
