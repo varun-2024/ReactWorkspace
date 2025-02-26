@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import Item from "./Item";
+import { useState } from "react";
 
 //let foodItems = [];
 //Terinary Operator
@@ -13,10 +14,22 @@ import Item from "./Item";
   } */
 
 function FoodItems({ items }) {
+  let [activeItems, setactiveItems] = useState([]);
+  let onBuyButton = (item, event) => {
+    let newItems = [...activeItems, item];
+    setactiveItems(newItems);
+  };
   return (
     <ul className="">
       {items.map((item) => (
-        <Item key={item} foodItem={item}></Item>
+        <Item
+          key={item}
+          foodItem={item}
+          bought={activeItems.includes(item)}
+          handleBuyButton={(event) => onBuyButton(item, event)}
+        >
+          {console.log(item)}
+        </Item>
       ))}
     </ul>
   );

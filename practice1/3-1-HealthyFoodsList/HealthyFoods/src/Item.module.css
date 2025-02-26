@@ -45,3 +45,8 @@
   cursor: pointer;
   width: 5rem;
 }
+
+.active {
+  background-color: #015683;
+  color: white;
+}
