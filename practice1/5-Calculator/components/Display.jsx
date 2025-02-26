@@ -1,5 +1,5 @@
 import styles from "./Display.module.css";
-function Display() {
+function Display({ displayValue }) {
   return (
     <div className={styles.calculator}>
       <input
@@ -8,6 +8,8 @@ function Display() {
         name="name"
         placeholder=""
         className={styles.display}
+        value={displayValue}
+        readOnly
       />
     </div>
   );
