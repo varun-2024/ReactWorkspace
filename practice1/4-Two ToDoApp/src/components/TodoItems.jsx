@@ -1,11 +1,16 @@
 import PropTypes from "prop-types";
 import TodoItem from "./TodoItem";
 
-function TodoItems({ todoItems }) {
+function TodoItems({ todoItems, onDeleteClick }) {
   return (
     <>
       {todoItems.map((item, index) => (
-        <TodoItem key={index} todoName={item.name} todoDate={item.dueDate} />
+        <TodoItem
+          key={index}
+          todoName={item.name}
+          todoDate={item.dueDate}
+          onDeleteClick={onDeleteClick}
+        />
       ))}
     </>
   );
