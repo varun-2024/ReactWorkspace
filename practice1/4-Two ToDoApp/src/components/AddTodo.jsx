@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoAdd } from "react-icons/io5";
 
 function AddTodo({ onNewItem }) {
   const [todoName, settodoName] = useState("");
@@ -48,7 +49,7 @@ function AddTodo({ onNewItem }) {
             className="button green btn btn-success"
             onClick={handleAddButtonClicked}
           >
-            Add
+            <IoAdd />
           </button>
         </div>
       </div>

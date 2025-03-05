@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { TiDeleteOutline } from "react-icons/ti";
 
 function TodoItem({ todoName, todoDate, onDeleteClick }) {
   return (
@@ -12,7 +13,7 @@ function TodoItem({ todoName, todoDate, onDeleteClick }) {
             className="button red btn btn-danger"
             onClick={() => onDeleteClick(todoName)}
           >
-            Delete
+            <TiDeleteOutline />
           </button>
         </div>
       </div>
