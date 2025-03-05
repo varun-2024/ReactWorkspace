@@ -6,7 +6,7 @@ function TodoItems({ todoItems, onDeleteClick }) {
     <>
       {todoItems.map((item, index) => (
         <TodoItem
-          key={index}
+          key={item.name}
           todoName={item.name}
           todoDate={item.dueDate}
           onDeleteClick={onDeleteClick}
