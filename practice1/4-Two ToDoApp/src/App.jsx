@@ -7,6 +7,7 @@ import { useState } from "react";
 
 function App() {
   const [todoItems, settodoItems] = useState([]);
+
   const handleNewItem = (itemName, itemDueDate) => {
     console.log(`Item Name: ${itemName}, Item Date: ${itemDueDate}`);
     const newtodoItems = [
