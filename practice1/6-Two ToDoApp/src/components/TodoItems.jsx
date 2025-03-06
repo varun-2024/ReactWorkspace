@@ -1,12 +1,18 @@
 import PropTypes from "prop-types";
 import TodoItem from "./TodoItem";
+import { TodoItemsContext } from "../../store/todo-items-store";
+import { useContext } from "react";
 
-function TodoItems({ todoItems, onDeleteClick }) {
+function TodoItems({ onDeleteClick }) {
+  const contextObj = useContext(TodoItemsContext);
+  const todoItems = contextObj.todoItems;
+  console.log(todoItems);
+
   return (
     <>
       {todoItems.map((item, index) => (
         <TodoItem
-          key={item.name}
+          key={item.id}
           todoName={item.name}
           todoDate={item.dueDate}
           onDeleteClick={onDeleteClick}

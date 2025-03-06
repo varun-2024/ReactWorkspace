@@ -1,5 +1,11 @@
+import { useContext } from "react";
 import styles from "./Welcome.module.css";
-function Welcometodo({ todoItems }) {
-  return <p className={styles.welcome}>Enjot Your Day</p>;
+import { TodoItemsContext } from "../../store/todo-items-store";
+function Welcometodo() {
+  const contextObj = useContext(TodoItemsContext);
+  const todoItems = contextObj.todoItems;
+  return (
+    todoItems.length === 0 && <p className={styles.welcome}>Enjoy Your Day</p>
+  );
 }
 export default Welcometodo;
