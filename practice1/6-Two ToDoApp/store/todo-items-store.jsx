@@ -34,7 +34,7 @@ const TodoItemsContextProvider = ({ children }) => {
     };
     dispatchTodoItems(newItemAction);
   };
-  /* ---------------------------------------------------------------- */
+  /* ---------------------------------------- */
   const deleteItem = (todoItemName) => {
     const deleteItemAction = {
       type: "DELETE_ITEM",
@@ -43,7 +43,7 @@ const TodoItemsContextProvider = ({ children }) => {
     dispatchTodoItems(deleteItemAction);
   };
 
-  /* ---------------------------------------------------------------- */
+  /* ----------------------------------------- */
   return (
     <TodoItemsContext.Provider
       value={{
