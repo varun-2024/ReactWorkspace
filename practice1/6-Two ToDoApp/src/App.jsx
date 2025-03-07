@@ -3,7 +3,7 @@ import AddTodo from "./components/AddTodo";
 import TodoItems from "./components/TodoItems";
 import Welcometodo from "./components/Welcometodo";
 import "./components/App.css";
-import { useState, useReducer } from "react";
+import { useReducer } from "react";
 import { TodoItemsContext } from "../store/todo-items-store";
 
 const todoItemsReducer = (currTodoItems, action) => {
