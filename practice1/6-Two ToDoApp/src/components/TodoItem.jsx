@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
+import { useContext } from "react";
 import { TiDeleteOutline } from "react-icons/ti";
+import { TodoItemsContext } from "../../store/todo-items-store";
 
-function TodoItem({ todoName, todoDate, onDeleteClick }) {
+function TodoItem({ todoName, todoDate }) {
+  const { deleteItem } = useContext(TodoItemsContext);
   return (
     <div className="container text-center">
       <div className="row">
@@ -11,7 +14,7 @@ function TodoItem({ todoName, todoDate, onDeleteClick }) {
           <button
             type="button"
             className="button red btn btn-danger"
-            onClick={() => onDeleteClick(todoName)}
+            onClick={() => deleteItem(todoName)}
           >
             <TiDeleteOutline />
           </button>
