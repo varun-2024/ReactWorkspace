@@ -30,7 +30,8 @@ export default function Todolist() {
       })
     );
   };
-
+  // Uppercase One
+  let uppercaseOne = (id) => {};
   return (
     <>
       <input
@@ -53,6 +54,10 @@ export default function Todolist() {
             <span className="">{todo.task}</span>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+            &nbsp;
+            <button className="delitembutton" onClick={uppercaseOne}>
+              Upercase One
+            </button>
           </li>
         ))}
       </ul>
