@@ -4,20 +4,31 @@ import { v4 as uuidv4 } from "uuid";
 export default function Todolist() {
   let [todos, setTodos] = useState([{ task: "sample-task", id: uuidv4() }]);
   let [newTodo, setNewTodo] = useState("");
-
+  // Add Todo
   let addNewTodoTask = () => {
     setTodos((prevTodos) => {
       return [...prevTodos, { task: newTodo, id: uuidv4() }];
     });
     setNewTodo("");
   };
+
+  // Update Todo
   let updateTodoValue = (event) => {
     setNewTodo(event.target.value);
   };
+  // Delete Todo
   let deleteTodo = (id) => {
     console.log("task to be deleted", id);
 
     setTodos((prevTodos) => todos.filter((prevTodos) => prevTodos.id != id));
+  };
+  // Upper case all
+  let uppercaseAll = () => {
+    setTodos(
+      todos.map((todo) => {
+        return { ...todo, task: todo.task.toUpperCase() };
+      })
+    );
   };
 
   return (
@@ -31,6 +42,7 @@ export default function Todolist() {
         value={newTodo}
         onChange={updateTodoValue}
       />
+      &nbsp;&nbsp;&nbsp;&nbsp;
       <button className="todoitembutton" onClick={addNewTodoTask}>
         Add Task
       </button>
@@ -44,6 +56,7 @@ export default function Todolist() {
           </li>
         ))}
       </ul>
+      <button onClick={uppercaseAll}>Uppercase All</button>
     </>
   );
 }
