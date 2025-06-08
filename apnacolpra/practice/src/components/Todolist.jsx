@@ -31,7 +31,18 @@ export default function Todolist() {
     );
   };
   // Uppercase One
-  let uppercaseOne = (id) => {};
+  let uppercaseOne = (id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id == id) {
+          return { ...todo, task: todo.task.toUpperCase() };
+        } else {
+          return todo;
+        }
+      })
+    );
+  };
+
   return (
     <>
       <input
@@ -55,7 +66,10 @@ export default function Todolist() {
             &nbsp;&nbsp;&nbsp;&nbsp;
             <button onClick={() => deleteTodo(todo.id)}>Delete</button>
             &nbsp;
-            <button className="delitembutton" onClick={uppercaseOne}>
+            <button
+              className="delitembutton"
+              onClick={() => uppercaseOne(todo.id)}
+            >
               Upercase One
             </button>
           </li>
