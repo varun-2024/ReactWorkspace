@@ -17,6 +17,29 @@ export default function Todo() {
     console.log("Event Target Value", event.target.value);
     setNewTodos(event.target.value);
   };
+  let delTodo = (delid) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== delid));
+  };
+  let upperCaseAll = () => {
+    setTodos(
+      todos.map((todo) => {
+        let a = { ...todo, task: todo.task.toUpperCase() };
+        console.log(a);
+        return { ...todo, task: todo.task.toUpperCase() };
+      })
+    );
+  };
+  let uppercaseOne = (idUppercase) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id == idUppercase) {
+          return { ...todo, task: todo.task.toUpperCase() };
+        } else {
+          return { todo };
+        }
+      })
+    );
+  };
 
   return (
     <>
@@ -41,11 +64,19 @@ export default function Todo() {
           <li key={todo.id}>
             {todo.task}
             &nbsp; &nbsp; &nbsp; &nbsp;
-            <button className="">Delete</button>
+            <button className="" onClick={() => delTodo(todo.id)}>
+              Delete
+            </button>
             &nbsp; &nbsp; &nbsp; &nbsp;
+            <button className="" onClick={() => uppercaseOne(todo.id)}>
+              UpperCase
+            </button>
           </li>
         ))}
       </ul>
+      <button className="" onClick={upperCaseAll}>
+        UpperCase All
+      </button>
     </>
   );
 }
