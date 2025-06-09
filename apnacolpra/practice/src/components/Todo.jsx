@@ -49,6 +49,11 @@ export default function Todo() {
     );
   };
 
+  let markAllDone = () =>
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => ({ ...todo, isDone: true }))
+    );
+
   return (
     <>
       <h2 className="">Todo App</h2>
@@ -92,6 +97,9 @@ export default function Todo() {
       </ul>
       <button className="" onClick={upperCaseAll}>
         UpperCase All
+      </button>
+      <button className="" onClick={markAllDone}>
+        Mark All as Done
       </button>
     </>
   );
