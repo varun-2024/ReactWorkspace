@@ -2,7 +2,9 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 export default function Todo() {
-  let [todos, setTodos] = useState([{ task: "sample-task", id: uuidv4() }]);
+  let [todos, setTodos] = useState([
+    { task: "sample-task", id: uuidv4(), isDone: false },
+  ]);
   let [newTodos, setNewTodos] = useState("");
 
   let addNewTodo = () => {
@@ -21,23 +23,29 @@ export default function Todo() {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== delid));
   };
   let upperCaseAll = () => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => ({
+        ...todo,
+        task: todo.task.toUpperCase(),
+      }))
+    );
+  };
+  let uppercaseOne = (id) => {
     setTodos(
       todos.map((todo) => {
-        let a = { ...todo, task: todo.task.toUpperCase() };
-        console.log(a);
-        return { ...todo, task: todo.task.toUpperCase() };
+        if (todo.id == id) {
+          return { ...todo, task: todo.task.toUpperCase() };
+        } else {
+          return todo;
+        }
       })
     );
   };
-  let uppercaseOne = (idUppercase) => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id == idUppercase) {
-          return { ...todo, task: todo.task.toUpperCase() };
-        } else {
-          return { todo };
-        }
-      })
+  let markasDone = (id) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: true } : todo
+      )
     );
   };
 
@@ -61,7 +69,10 @@ export default function Todo() {
         <h4>Tasks</h4>
         <hr></hr>
         {todos.map((todo) => (
-          <li key={todo.id}>
+          <li
+            style={{ textDecoration: todo.isDone ? "line-through" : "none" }}
+            key={todo.id}
+          >
             {todo.task}
             &nbsp; &nbsp; &nbsp; &nbsp;
             <button className="" onClick={() => delTodo(todo.id)}>
@@ -70,6 +81,10 @@ export default function Todo() {
             &nbsp; &nbsp; &nbsp; &nbsp;
             <button className="" onClick={() => uppercaseOne(todo.id)}>
               UpperCase
+            </button>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <button className="" onClick={() => markasDone(todo.id)}>
+              Done
             </button>
           </li>
         ))}

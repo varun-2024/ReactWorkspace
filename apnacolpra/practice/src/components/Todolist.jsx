@@ -37,7 +37,7 @@ export default function Todolist() {
         if (todo.id == id) {
           return { ...todo, task: todo.task.toUpperCase() };
         } else {
-          return { todo };
+          return todo;
         }
       })
     );
