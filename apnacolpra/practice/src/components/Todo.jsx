@@ -11,7 +11,7 @@ export default function Todo() {
     console.log("todos accepted");
     setTodos((prevTodos) => {
       console.log("Previous Todos:", prevTodos);
-      return [...prevTodos, { task: newTodos, id: uuidv4() }];
+      return [...prevTodos, { task: newTodos, id: uuidv4(), isDone: false }];
     });
     setNewTodos("");
   };
