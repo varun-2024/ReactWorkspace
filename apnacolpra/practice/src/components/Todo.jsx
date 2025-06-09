@@ -19,8 +19,8 @@ export default function Todo() {
     console.log("Event Target Value", event.target.value);
     setNewTodos(event.target.value);
   };
-  let delTodo = (delid) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== delid));
+  let delTodo = (id) => {
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
   let upperCaseAll = () => {
     setTodos((prevTodos) =>
@@ -33,7 +33,7 @@ export default function Todo() {
   let uppercaseOne = (id) => {
     setTodos(
       todos.map((todo) => {
-        if (todo.id == id) {
+        if (todo.id === id) {
           return { ...todo, task: todo.task.toUpperCase() };
         } else {
           return todo;
