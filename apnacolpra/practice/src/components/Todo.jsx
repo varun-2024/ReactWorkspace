@@ -69,11 +69,12 @@ export default function Todo() {
         <h4>Tasks</h4>
         <hr></hr>
         {todos.map((todo) => (
-          <li
-            style={{ textDecoration: todo.isDone ? "line-through" : "none" }}
-            key={todo.id}
-          >
-            {todo.task}
+          <li key={todo.id}>
+            <span
+              style={{ textDecoration: todo.isDone ? "line-through" : "none" }}
+            >
+              {todo.task}
+            </span>
             &nbsp; &nbsp; &nbsp; &nbsp;
             <button className="" onClick={() => delTodo(todo.id)}>
               Delete
