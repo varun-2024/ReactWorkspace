@@ -53,7 +53,9 @@ export default function Todo() {
     setTodos((prevTodos) =>
       prevTodos.map((todo) => ({ ...todo, isDone: true }))
     );
-
+  let deleteAll = () => {
+    setTodos([{ task: "sample-task", id: uuidv4(), isDone: false }]);
+  };
   return (
     <>
       <h2 className="">Todo App</h2>
@@ -100,6 +102,9 @@ export default function Todo() {
       </button>
       <button className="" onClick={markAllDone}>
         Mark All as Done
+      </button>
+      <button className="" onClick={deleteAll}>
+        Delete All
       </button>
     </>
   );
