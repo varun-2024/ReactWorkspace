@@ -8,6 +8,10 @@ export default function Todo() {
   let [newTodos, setNewTodos] = useState("");
 
   let addNewTodo = () => {
+    if (!newTodos.trim()) {
+      console.log("Cannot add an empty todo!");
+      return;
+    }
     console.log("todos accepted");
     setTodos((prevTodos) => {
       console.log("Previous Todos:", prevTodos);
@@ -32,13 +36,11 @@ export default function Todo() {
   };
   let uppercaseOne = (id) => {
     setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return { ...todo, task: todo.task.toUpperCase() };
-        } else {
-          return todo;
-        }
-      })
+      setTodos((prevTodos) =>
+        prevTodos.map((todo) =>
+          todo.id === id ? { ...todo, task: todo.task.toUpperCase() } : todo
+        )
+      )
     );
   };
   let markasDone = (id) => {
