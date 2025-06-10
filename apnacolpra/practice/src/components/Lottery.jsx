@@ -15,7 +15,8 @@ export default function Lottery() {
     }
     return total;
   }
-  let [ticket, setTicket] = useState(GenerateTicket(3));
+  let n = 3;
+  let [ticket, setTicket] = useState(GenerateTicket(n));
   let isWinning = sum(ticket) === 15;
   return (
     <>
@@ -26,7 +27,7 @@ export default function Lottery() {
         ))}
       </>
       <h3 className=""> {isWinning && "Congratulations You Won!!!"}</h3>
-      <button className="" onClick={() => setTicket(GenerateTicket(3))}>
+      <button className="" onClick={() => setTicket(GenerateTicket(n))}>
         Play
       </button>
     </>
