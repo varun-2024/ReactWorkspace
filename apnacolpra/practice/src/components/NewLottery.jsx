@@ -23,7 +23,9 @@ export default function NewLottery({ n = 3, winningSum = 15 }) {
       <button className="" onClick={buyTicket}>
         Buy Ticket
       </button>
-      <h3 className="">{isWinning ? "Winning Ticket!" : "Try Again!"}</h3>
+      <h3 className="" style={{ color: isWinning ? "green" : "red" }}>
+        {isWinning ? "Winning Ticket!" : "Try Again!"}
+      </h3>
     </>
   );
 }
