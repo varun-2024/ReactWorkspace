@@ -1,10 +1,10 @@
-import Commentsform from "./Commentsform.jsx";
+import Comment from "./Comment.jsx";
 import "./App.css";
 
 function App() {
   return (
     <>
-      <Commentsform />
+      <Comment />
     </>
   );
 }

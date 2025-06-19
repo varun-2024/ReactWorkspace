@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useFormik } from "formik";
 
-export default function Commentsform() {
+export default function Commentsform({ addComment }) {
   let [formData, setFormdata] = useState({
     username: "",
     rating: "",
     comment: "",
   });
+
   let handleOnChange = (e) => {
     setFormdata((prevData) => {
       return {
@@ -16,6 +18,7 @@ export default function Commentsform() {
   };
   let handleSubmit = (e) => {
     console.log("formData", formData);
+    addComment(formData);
     e.preventDefault();
     setFormdata({
       username: "",
