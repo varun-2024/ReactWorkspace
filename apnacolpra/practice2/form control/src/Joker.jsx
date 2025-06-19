@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Joker() {
   let [joke, setJoke] = useState({});
@@ -9,6 +9,9 @@ export default function Joker() {
     console.log(jsonResponse);
     setJoke(jsonResponse);
   };
+  useEffect(() => {
+    getNewJoke();
+  }, []);
   return (
     <>
       <h3>Joker</h3>
