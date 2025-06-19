@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFormik } from "formik";
 
 export default function Commentsform({ addComment }) {
-  let [formData, setFormdata] = useState({
+  /* let [formData, setFormdata] = useState({
     username: "",
     rating: "",
     comment: "",
@@ -25,12 +25,38 @@ export default function Commentsform({ addComment }) {
       rating: "",
       comment: "",
     });
+  }; */
+  const validate = (values) => {
+    const errors = {};
+    if (!values.username) {
+      errors.username = "Username Cannot be Empty";
+    }
+    if (!values.rating) {
+      errors.rating = "Rating Cannot be Empty";
+    }
+    if (!values.comment) {
+      errors.comment = "Comment Cannot be Empty";
+    }
+    return errors;
   };
+
+  const formik = useFormik({
+    initialValues: {
+      username: "",
+      rating: "",
+      comment: "",
+    },
+    validate,
+    onSubmit: (values, { resetForm }) => {
+      alert(JSON.stringify(values, null, 2));
+      addComment(values);
+      resetForm();
+    },
+  });
   return (
     <>
       <h4 className="">Give a Comment</h4>
-      <br />
-      <form className="" action="" method="" onSubmit={handleSubmit}>
+      <form className="" action="" method="" onSubmit={formik.handleSubmit}>
         <label htmlFor="username">Username</label>
         <br />
         <input
@@ -39,9 +65,13 @@ export default function Commentsform({ addComment }) {
           name="username"
           placeholder="Enter your username"
           className=""
-          value={formData.username}
-          onChange={handleOnChange}
+          value={formik.values.username}
+          onChange={formik.handleChange}
         />
+        <br />
+        {formik.errors.username ? (
+          <p style={{ color: "red" }}>{formik.errors.username}</p>
+        ) : null}
         <br />
         <label htmlFor="rating">Rating</label>
         <br />
@@ -53,9 +83,13 @@ export default function Commentsform({ addComment }) {
           className=""
           min={1}
           max={5}
-          value={formData.rating}
-          onChange={handleOnChange}
+          value={formik.values.rating}
+          onChange={formik.handleChange}
         />
+        <br />
+        {formik.errors.rating ? (
+          <p style={{ color: "red" }}>{formik.errors.rating}</p>
+        ) : null}
         <br />
         <label htmlFor="comment">Comment</label>
         <br />
@@ -64,11 +98,17 @@ export default function Commentsform({ addComment }) {
           name="comment"
           placeholder="Enter your comment"
           className=""
-          value={formData.comment}
-          onChange={handleOnChange}
+          value={formik.values.comment}
+          onChange={formik.handleChange}
         />
         <br />
-        <button className="">Add Comment</button>
+        {formik.errors.comment ? (
+          <p style={{ color: "red" }}>{formik.errors.comment}</p>
+        ) : null}
+        <br />
+        <button className="" type="submit">
+          Add Comment
+        </button>
       </form>
     </>
   );

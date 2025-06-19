@@ -2,13 +2,7 @@ import { useState } from "react";
 import Commentsform from "./Commentsform.jsx";
 
 export default function Comment() {
-  let [comments, setComments] = useState([
-    {
-      username: "",
-      rating: "",
-      comment: "",
-    },
-  ]);
+  let [comments, setComments] = useState([]);
   let addComment = (newComment) => {
     setComments((prevComments) => {
       return [...prevComments, newComment];
