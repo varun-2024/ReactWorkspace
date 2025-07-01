@@ -1,11 +1,20 @@
 import "./App.css";
+import Button from "@mui/material/Button";
 
 function App() {
+  let handleClick = () => {
+    console.log("Button was Clicked!");
+  };
   return (
     <>
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
+      <h1 className="">Material UI Demo</h1>
+
+      <Button variant="contained" onClick={handleClick}>
+        Click Me
+      </Button>
+      <Button variant="contained" onClick={handleClick} disabled>
+        Click Me2
+      </Button>
     </>
   );
 }
