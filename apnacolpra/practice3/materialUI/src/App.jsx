@@ -9,10 +9,15 @@ function App() {
     <>
       <h1 className="">Material UI Demo</h1>
 
-      <Button variant="contained" onClick={handleClick}>
+      <Button variant="contained" size="small" onClick={handleClick}>
         Click Me
       </Button>
-      <Button variant="contained" onClick={handleClick} disabled>
+      <Button
+        variant="contained"
+        size="large"
+        onClick={handleClick}
+        color="success"
+      >
         Click Me2
       </Button>
     </>
