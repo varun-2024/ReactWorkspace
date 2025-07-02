@@ -8,6 +8,7 @@ export default function Searchbox() {
       <h2 className="">Search City for Weather</h2>
       <form className="" action="" method="">
         <TextField id="city" label="City Name" variant="outlined" required />
+        <br />
         <Button
           size="large"
           type="submit"
