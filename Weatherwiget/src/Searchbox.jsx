@@ -1,13 +1,21 @@
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
 export default function Searchbox() {
   return (
     <>
       <h1 className="">Weather App</h1>
       <h2 className="">Search City for Weather</h2>
       <form className="" action="" method="">
-      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-        <button className="">Search</button>
+        <TextField id="city" label="City Name" variant="outlined" required />
+        <Button
+          size="large"
+          type="submit"
+          variant="contained"
+          endIcon={<SendIcon />}
+        >
+          Search
+        </Button>
       </form>
     </>
   );
