@@ -2,14 +2,23 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { useState } from "react";
+
 export default function Searchbox() {
-  let API_URL =
-    "https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}";
   let [city, setCity] = useState("");
+  const API_KEY = import.meta.env.VITE_REACT_APP_API_KEY;
+  let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+
+  let getWeatherInfo = async () => {
+    let response = await fetch(API_URL);
+    let data = await response.json();
+    console.log(data);
+  };
+
   let handleSubmit = (e) => {
     e.preventDefault();
     console.log(city);
     setCity("");
+    getWeatherInfo();
   };
   return (
     <>
