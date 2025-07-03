@@ -37,6 +37,7 @@ export default function Searchbox({ setWeatherInfo }) {
       setCity("");
       let newInfo = await getWeatherInfo();
       setWeatherInfo(newInfo);
+      setError(false);
       /* getWeatherInfo().then((data) => {
       setWeatherInfo(data);
     }); */
