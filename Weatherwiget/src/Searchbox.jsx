@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import SendIcon from "@mui/icons-material/Send";
 import { useState } from "react";
 
-export default function Searchbox() {
+export default function Searchbox({ setWeatherInfo }) {
   let [city, setCity] = useState("");
   const API_KEY = import.meta.env.VITE_REACT_APP_API_KEY;
   let API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
@@ -22,13 +22,18 @@ export default function Searchbox() {
       weather: data.weather[0].description,
     };
     console.log(result);
+    return result;
   };
 
-  let handleSubmit = (e) => {
+  let handleSubmit = async (e) => {
     e.preventDefault();
     console.log(city);
     setCity("");
-    getWeatherInfo();
+    let newInfo = await getWeatherInfo();
+    setWeatherInfo(newInfo);
+    /* getWeatherInfo().then((data) => {
+      setWeatherInfo(data);
+    }); */
   };
   return (
     <>
