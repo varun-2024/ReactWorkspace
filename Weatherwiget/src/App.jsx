@@ -1,5 +1,6 @@
 //import { useState } from "react";
 import Searchbox from "./searchbox";
+import Infobox from "./Infobox.jsx";
 import "./App.css";
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <Searchbox />
+      <Infobox />
     </>
   );
 }

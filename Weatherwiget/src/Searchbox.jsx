@@ -12,6 +12,16 @@ export default function Searchbox() {
     let response = await fetch(API_URL);
     let data = await response.json();
     console.log(data);
+    let result = {
+      city,
+      temp: data.main.temp,
+      temp_min: data.main.temp_min,
+      temp_max: data.main.temp_max,
+      humidity: data.main.humidity,
+      feelslike: data.main.feels_like,
+      weather: data.weather[0].description,
+    };
+    console.log(result);
   };
 
   let handleSubmit = (e) => {
