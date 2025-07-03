@@ -2,6 +2,10 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
+import AcUnitIcon from "@mui/icons-material/AcUnit";
+import SunnyIcon from "@mui/icons-material/Sunny";
+import ThunderstormIcon from "@mui/icons-material/Thunderstorm";
+import ThermostatIcon from "@mui/icons-material/Thermostat";
 
 export default function Infobox({ weatherData }) {
   const INIT_URL =
@@ -35,6 +39,17 @@ export default function Infobox({ weatherData }) {
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {weatherData.city}
+              {weatherData.humidity > 80 ? (
+                <ThunderstormIcon />
+              ) : weatherData.temp > 30 ? (
+                <ThermostatIcon />
+              ) : weatherData.temp > 20 && weatherData.temp <= 30 ? (
+                <SunnyIcon />
+              ) : weatherData.temp === "" ? (
+                <ThermostatIcon />
+              ) : (
+                <AcUnitIcon />
+              )}
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
               Temperature: {weatherData.temp}°C
