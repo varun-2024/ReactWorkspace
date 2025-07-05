@@ -25,6 +25,7 @@ export const todoSlice = createSlice({
         if (todo.id === action.payload) {
           todo.isDone = true;
         }
+        return todo;
       });
     },
   },

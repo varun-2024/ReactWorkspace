@@ -1,9 +1,13 @@
 import { useSelector } from "react-redux";
 import AddForm from "./AddForm";
+import { useDispatch } from "react-redux";
+import { markAsDone, deleteTodo } from "../features/todo/todoSlice";
 
 export default function Todo() {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos.todos);
   console.log(todos);
+  const dispatch = useDispatch();
+
   return (
     <>
       <h1>Todo List</h1>
@@ -14,9 +18,13 @@ export default function Todo() {
           <li className="" key={todo.id}>
             {todo.task} - {todo.isDone ? "Done" : "Pending"}
             &nbsp;&nbsp;
-            <button className="">Mark Done</button>
+            <button className="" onClick={() => dispatch(markAsDone(todo.id))}>
+              Mark Done
+            </button>
             &nbsp;&nbsp;
-            <button className="">Delete</button>
+            <button className="" onClick={() => dispatch(deleteTodo(todo.id))}>
+              Delete
+            </button>
           </li>
         ))}
       </ul>
